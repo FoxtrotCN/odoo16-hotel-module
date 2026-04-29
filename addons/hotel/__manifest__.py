@@ -6,7 +6,11 @@
     'author': 'Fernando Cedeno',
     'category': 'Services',
     'depends': ['base'],
-    'data': [],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/hotel_room_views.xml',
+
+    ],
     'installable': True,
     'application': True,
 }
