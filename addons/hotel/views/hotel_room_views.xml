@@ -25,11 +25,8 @@
         <field name="model">hotel.room</field>
         <field name="arch" type="xml">
             <form>
-
                 <sheet>
-
                     <group>
-
                         <group string="Información General">
                             <field name="name"/>
                             <field name="room_type"/>
@@ -41,48 +38,38 @@
                             <field name="price_per_night"/>
                             <field name="floor"/>
                         </group>
-
                     </group>
-
                     <notebook>
+                        <page string="Comodidades">
+                            <field name="amenity_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="description"/>
+                                </tree>
+                            </field>
+                        </page>
+
+                        <page string="Reservas">
+                            <field name="reservation_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="guest_id"/>
+                                    <field name="check_in"/>
+                                    <field name="check_out"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </page>
 
                         <page string="Notas">
                             <field name="notes"/>
                         </page>
-
                     </notebook>
-
                 </sheet>
-
             </form>
-
         </field>
 
     </record>
-
-    <!--    Acción de ventana-->
-    <record id="action_hotel_room" model="ir.actions.act_window">
-        <field name="name">Habitaciones</field>
-        <field name="res_model">hotel.room</field>
-        <field name="view_mode">tree,form</field>
-        <field name="search_view_id" ref="view_hotel_room_search"/>
-    </record>
-
-    <!--    Menú raíz-->
-    <menuitem
-            id="menu_hotel_root"
-            name="Hotel"
-            sequence="10"
-    />
-
-    <!--    Submenú de habitaciones-->
-    <menuitem
-            id="menu_hotel_room"
-            name="Habitaciones"
-            parent="menu_hotel_root"
-            action="action_hotel_room"
-            sequence="10"
-    />
 
     <!--    Vista de búsqueda-->
     <record id="view_hotel_room_search" model="ir.ui.view">
@@ -117,5 +104,30 @@
             </search>
         </field>
     </record>
+
+    <!--    Acción de ventana-->
+    <record id="action_hotel_room" model="ir.actions.act_window">
+        <field name="name">Habitaciones</field>
+        <field name="res_model">hotel.room</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_hotel_room_search"/>
+    </record>
+
+    <!--    Menú raíz-->
+    <menuitem
+            id="menu_hotel_root"
+            name="Hotel"
+            sequence="10"
+    />
+
+    <!--    Submenú de habitaciones-->
+    <menuitem
+            id="menu_hotel_room"
+            name="Habitaciones"
+            parent="menu_hotel_root"
+            action="action_hotel_room"
+            sequence="10"
+    />
+
 
 </odoo>

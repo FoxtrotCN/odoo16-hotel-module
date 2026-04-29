@@ -9,6 +9,8 @@
     'data': [
         'security/ir.model.access.csv',
         'views/hotel_room_views.xml',
+        'views/hotel_amenity_views.xml',
+        'views/hotel_reservation_views.xml',
 
     ],
     'installable': True,

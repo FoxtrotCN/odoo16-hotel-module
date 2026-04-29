@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+    <!--    Vista Árbol-->
+    <record id="view_hotel_amenity_tree" model="ir.ui.view">
+        <field name="name">hotel.amenity.tree</field>
+        <field name="model">hotel.amenity</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--    Vista Formulario-->
+    <record id="view_hotel_amenity_form" model="ir.ui.view">
+        <field name="name">hotel.amenity.form</field>
+        <field name="model">hotel.amenity</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--    Acción-->
+    <record id="action_hotel_amenity" model="ir.actions.act_window">
+        <field name="name">Comodidades</field>
+        <field name="res_model">hotel.amenity</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--    Menú-->
+    <menuitem
+            id="menu_hotel_amenity"
+            name="Comodidades"
+            parent="menu_hotel_root"
+            action="action_hotel_amenity"
+            sequence="20"
+    />
+
+</odoo>

@@ -20,3 +20,5 @@ class HotelRoom(models.Model):
         ('maintenance', 'Mantenimiento'),
     ], string='Estado', default='available')
     notes = fields.Text(string='Notas')
+    amenity_ids = fields.Many2many('hotel.amenity', string='Comodidades')
+    reservation_ids = fields.One2many('hotel.reservation', 'room_id', string='Reservas')
